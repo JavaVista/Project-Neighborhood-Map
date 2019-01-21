@@ -20,7 +20,7 @@ Udacity Front-End Developer Nanodegree project. Developed a Single Page App usin
 
 ## Task
 
-I create a Bookshelf App that allows you to select and categorize books you are __"Currently Reading"__, __"Want to Read"__ and __Read"__. This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+I create a Single Page App that allows you to select a list of venues in a Google Map. This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## App Functionality
 
