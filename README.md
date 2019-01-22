@@ -9,8 +9,6 @@ Udacity Front-End Developer Nanodegree project. Developed a Single Page App usin
   - [Task](#task)
   - [App Functionality](#app-functionality)
     - [Demo](#demo)
-  - [Technology](#technology)
-  - [Project Instructions](#project-instructions)
     - [Dependencies](#dependencies)
     - [Server](#server)
   - [Deployment](#deployment)
@@ -29,20 +27,7 @@ fjaldjljafjdkfajffk
 ### Demo
 
 - [MyReads App](https://javavista.github.io/Project-MyReads/#/)
-
-## Technology
-
-- JavaScript
-  - ES6
-- [ReactJS](https://reactjs.org/)
-- [React Router](https://reacttraining.com/react-router/)
-
-## Project Instructions
-
-To view the code and make changes:
-
-- Fork the repository.
-- Download the repository to your computer.
+q
 
 ### Dependencies
 
