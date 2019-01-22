@@ -52,7 +52,6 @@ Install all project dependencies with `npm install`. You can also use `yarn inst
 
 Start the development server with `npm start`. You can also use `yarn start`.
 
-
 ## Deployment
 
 `npm run build` creates a `build` directory with a production build of your app. Set up your favorite  HTTP server so that a visitor to your site is served `index.html`.
