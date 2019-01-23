@@ -8,10 +8,12 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 75px;
+  background-color: #cb8536;
+  border: 1px solid #999;
+  height: 100%;
   padding: 10px;
   color: white;
+  width: 340px;
 }
 
 .App-title {
@@ -25,4 +27,19 @@
 @keyframes App-logo-spin {
   from { transform: rotateY(0deg); }
   to { transform: rotateY(360deg); }
+}
+
+html,
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+  bottom: 0px;
+  height: 100vh;
+  left: 362px;
+  position: absolute;
+  right: 0px;
 }
