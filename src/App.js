@@ -233,7 +233,14 @@ class App extends Component {
     //Associate the styled map with the MapTypeId and set it to display.
     map.mapTypes.set('styles', styles);
 
+    // Create infowindow
+    let infowindow = new window.google.maps.InfoWindow({});
+
+    // Iteration to display markers
     this.state.venues.map(thisVenue => {
+      let venueInfo = `Venue: ${thisVenue.venue.name}`;
+
+      // Create marker
       let marker = new window.google.maps.Marker({
         position: {
           lat: thisVenue.venue.location.lat,
@@ -241,6 +248,12 @@ class App extends Component {
         },
         map: map,
         title: thisVenue.venue.name
+      });
+
+      // Click marker, set content and open infowindow
+      return marker.addListener('click', () => {
+        infowindow.setContent(venueInfo);
+        infowindow.open(map, marker);
       });
     });
   };
