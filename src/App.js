@@ -4,14 +4,12 @@ import './App.css';
 import axios from 'axios';
 
 class App extends Component {
-
-    state = {
-        venues: []
-    }
+  state = {
+    venues: []
+  };
 
   componentDidMount() {
     this.getVenues();
-    this.renderMap();
   }
 
   renderMap = () => {
@@ -31,11 +29,15 @@ class App extends Component {
       near: 'Waterbury,CT'
     };
 
-    axios.get(endpoint + new URLSearchParams(param))
-        .then(res => {
-            this.setState({
-              venues: res.data.response.groups[0].items
-          })
+    axios
+      .get(endpoint + new URLSearchParams(param))
+      .then(res => {
+        this.setState(
+          {
+            venues: res.data.response.groups[0].items
+          },
+          this.renderMap()
+        );
       })
       .catch(error => {
         console.log(`Error: ${error}`);
@@ -227,11 +229,20 @@ class App extends Component {
       mapTypeControlOptions: {
         mapTypeIds: ['roadmap', 'styles'] // The MapTypeId to add to the map type control.
       }
-      //styles: styles,
-      //mapTypeControl: true
     }); // The higher the zoom number, the more detailed the map.
     //Associate the styled map with the MapTypeId and set it to display.
     map.mapTypes.set('styles', styles);
+
+    this.state.venues.map(thisVenue => {
+      let marker = new window.google.maps.Marker({
+        position: {
+          lat: thisVenue.venue.location.lat,
+          lng: thisVenue.venue.location.lng
+        },
+        map: map,
+        title: thisVenue.venue.name
+      });
+    });
   };
 
   render() {
