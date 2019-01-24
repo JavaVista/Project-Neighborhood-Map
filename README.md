@@ -9,6 +9,7 @@ Udacity Front-End Developer Nanodegree project. Developed a Single Page App usin
   - [Task](#task)
   - [App Functionality](#app-functionality)
     - [Demo](#demo)
+  - [Technology](#technology)
     - [Dependencies](#dependencies)
     - [Server](#server)
   - [Deployment](#deployment)
@@ -28,6 +29,16 @@ fjaldjljafjdkfajffk
 
 - [MyReads App](https://javavista.github.io/Project-MyReads/#/)
 q
+
+## Technology
+
+- JavaScript
+  - ES6
+- Node.js
+  - npm
+- [axios](https://www.npmjs.com/package/axios)
+- [ReactJS](https://reactjs.org/)
+- [React Router](https://reacttraining.com/react-router/)
 
 ### Dependencies
 

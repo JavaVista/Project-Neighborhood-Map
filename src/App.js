@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import logo from './Map-icon.png';
 import './App.css';
+import axios from 'axios';
 
 class App extends Component {
+
+    state = {
+        venues: []
+    }
+
   componentDidMount() {
+    this.getVenues();
     this.renderMap();
   }
 
@@ -12,6 +19,27 @@ class App extends Component {
       'https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry&key=AIzaSyBKHkb-mBawoVs_ygUqq4XrWF_nCIwGWkM&v=3&callback=initMap'
     );
     window.initMap = this.initMap;
+  };
+
+  getVenues = () => {
+    const endpoint = 'https://api.foursquare.com/v2/venues/explore?';
+    const param = {
+      client_id: 'EKWEPS4YTXRYSTDAWXSOP35QYXXTE0ZQ0KKZPGDII12QBBV5',
+      client_secret: 'Q1DMU1ZCMS0ZKUFDLG4GV1XOX2J1M4I12ZWY0AOBHPXGQ3KK',
+      v: '20190301',
+      query: 'coffee',
+      near: 'Waterbury,CT'
+    };
+
+    axios.get(endpoint + new URLSearchParams(param))
+        .then(res => {
+            this.setState({
+              venues: res.data.response.groups[0].items
+          })
+      })
+      .catch(error => {
+        console.log(`Error: ${error}`);
+      });
   };
 
   initMap = () => {
@@ -211,7 +239,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Waterbury the Brass City</h2>
+          <h2>Waterbury the Brass City Venues</h2>
         </header>
         <main>
           <div id="map" />
