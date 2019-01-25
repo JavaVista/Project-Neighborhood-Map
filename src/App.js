@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './Map-icon.png';
 import './App.css';
 import axios from 'axios';
+import Map from './components/Map';
 
 class App extends Component {
   state = {
@@ -266,7 +267,7 @@ class App extends Component {
           <h2>Waterbury the Brass City Venues</h2>
         </header>
         <main>
-          <div id="map" />
+         <Map />
         </main>
       </div>
     );
