@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './Map-icon.png';
 import './App.css';
 import axios from 'axios';
 import Map from './components/Map';
+import Header from './components/Header';
 
 class App extends Component {
   state = {
@@ -262,10 +262,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Waterbury the Brass City Coffee Venues</h2>
-        </header>
+        <Header />
         <main>
           <Map />
         </main>
