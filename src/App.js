@@ -238,7 +238,7 @@ class App extends Component {
     let infowindow = new window.google.maps.InfoWindow({});
 
     // Iteration to display markers
-    this.state.venues.map(thisVenue => {
+    this.state.venues.forEach(thisVenue => {
       let venueInfo = `Venue: ${thisVenue.venue.name}`;
 
       // Create marker
@@ -252,7 +252,7 @@ class App extends Component {
       });
 
       // Click marker, set content and open infowindow
-      return marker.addListener('click', () => {
+      marker.addListener('click', () => {
         infowindow.setContent(venueInfo);
         infowindow.open(map, marker);
       });
@@ -264,10 +264,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Waterbury the Brass City Venues</h2>
+          <h2>Waterbury the Brass City Coffee Venues</h2>
         </header>
         <main>
-         <Map />
+          <Map />
         </main>
       </div>
     );
