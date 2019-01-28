@@ -7,7 +7,8 @@ import Search from './components/Search';
 
 class App extends Component {
   state = {
-    venues: []
+    venues: [],
+    markers: []
   };
 
   componentDidMount() {
@@ -28,7 +29,8 @@ class App extends Component {
       client_secret: 'Q1DMU1ZCMS0ZKUFDLG4GV1XOX2J1M4I12ZWY0AOBHPXGQ3KK',
       v: '20190301',
       query: 'coffee',
-      near: 'Waterbury,CT'
+      near: 'Waterbury,CT',
+      limit: 10
     };
 
     axios
@@ -227,7 +229,7 @@ class App extends Component {
     // Constructor creates a new map - only center and zoom are required.
     let map = new window.google.maps.Map(document.getElementById('map'), {
       center: { lat: 41.5538091, lng: -73.0438362 },
-      zoom: 15,
+      zoom: 13,
       mapTypeControlOptions: {
         mapTypeIds: ['roadmap', 'styles'] // The MapTypeId to add to the map type control.
       }
@@ -240,7 +242,9 @@ class App extends Component {
 
     // Iteration to display markers
     this.state.venues.forEach(thisVenue => {
-      let venueInfo = `Venue: ${thisVenue.venue.name}`;
+      let venueInfo = `<h4>${thisVenue.venue.name}</h4>
+        <p>${thisVenue.venue.location.formattedAddress}</p>
+        <p>${thisVenue.venue.categories[0].name}</p>`;
 
       // Create marker
       let marker = new window.google.maps.Marker({
@@ -249,8 +253,12 @@ class App extends Component {
           lng: thisVenue.venue.location.lng
         },
         map: map,
-        title: thisVenue.venue.name
+        title: thisVenue.venue.name,
+        animation: window.google.maps.Animation.DROP
       });
+
+      // Add marker to the markers array
+      this.state.markers.push(marker);
 
       // Click marker, set content and open infowindow
       marker.addListener('click', () => {
@@ -260,12 +268,20 @@ class App extends Component {
     });
   };
 
+  updateVenues = newVenues => {
+    this.setState({ venues: newVenues });
+  };
+
   render() {
     return (
       <div className="App">
         <Header />
         <main>
-          <Search />
+          <Search
+            venues={this.state.venues}
+            markers={this.state.markers}
+            updateVenues={this.updateVenues}
+          />
           <Map />
         </main>
       </div>
