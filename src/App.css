@@ -48,4 +48,16 @@ body {
 .search {
   width: 30%;
   padding-top: 10px;
+
+}
+
+input, .search-result {
+  list-style: none;
+  padding-right: 12%
+}
+
+.item {
+  padding: 10%;
+  margin: 5%;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }

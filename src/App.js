@@ -7,6 +7,7 @@ import Search from './components/Search';
 
 class App extends Component {
   state = {
+    allVenues: [],
     venues: [],
     markers: []
   };
@@ -38,6 +39,7 @@ class App extends Component {
       .then(res => {
         this.setState(
           {
+            allVenues: res.data.response.groups[0].items,
             venues: res.data.response.groups[0].items
           },
           this.renderMap()
@@ -242,10 +244,9 @@ class App extends Component {
 
     // Iteration to display markers
     this.state.venues.forEach(thisVenue => {
-      let venueInfo = `<h4>${thisVenue.venue.name}</h4>
+      let venueInfo = `<div className="info"><h4>${thisVenue.venue.name}</h4>
         <p>${thisVenue.venue.location.formattedAddress}</p>
-        <p>${thisVenue.venue.categories[0].name}</p>`;
-
+        <p>${thisVenue.venue.categories[0].name}</p></div>`;
       // Create marker
       let marker = new window.google.maps.Marker({
         position: {
@@ -254,6 +255,7 @@ class App extends Component {
         },
         map: map,
         title: thisVenue.venue.name,
+        id: thisVenue.venue.id,
         animation: window.google.maps.Animation.DROP
       });
 
@@ -264,6 +266,11 @@ class App extends Component {
       marker.addListener('click', () => {
         infowindow.setContent(venueInfo);
         infowindow.open(map, marker);
+
+        // Marker animation
+        marker.getAnimation() !== null
+          ? marker.setAnimation(null)
+          : marker.setAnimation(window.google.maps.Animation.BOUNCE);
       });
     });
   };
@@ -278,9 +285,9 @@ class App extends Component {
         <Header />
         <main>
           <Search
-            venues={this.state.venues}
-            markers={this.state.markers}
             updateVenues={this.updateVenues}
+            venues={this.state.allVenues}
+            markers={this.state.markers}
           />
           <Map />
         </main>

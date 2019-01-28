@@ -13,20 +13,30 @@ export default class Search extends Component {
     let newVenues;
     const match = new RegExp(escapeRegex(query), 'i');
 
-    if (this.state.query && (this.state.query !== '')) {
-      newVenues = allVenues.filter(locale => match.test(locale.venue.name));
-      this.setState({ venues: newVenues });
+    if (this.state.query && this.state.query !== '') {
+      newVenues = allVenues.filter(locale => {
+        return match.test(locale.venue.name);
+      });
+      this.setState({ venues: newVenues })
       this.props.updateVenues(newVenues);
-      console.log('old ', allVenues, 'new ', newVenues)
     } else {
       this.setState({ venues: allVenues });
     }
   };
+
+  clickMarker = (venueName, id) => {
+    this.props.markers.forEach(marker => {
+      if (marker.title === venueName && marker.id === id) {
+        window.google.maps.event.trigger(marker, 'click');
+      }
+    });
+  };
+
   render() {
     return (
       <aside className="search">
         <div className="search-form">
-          <h3 className="text">Search for Coffee Nearby</h3>
+          <h3 className="text">Search for Java Nearby</h3>
           <input
             id="places-search"
             type="text"
@@ -35,6 +45,23 @@ export default class Search extends Component {
             value={this.state.query}
           />
         </div>
+
+        {this.state.venues.length !== 0 && (
+          <ul className="search-result">
+            {this.state.venues.map((locale, index, id) => {
+              return (
+                <li
+                  key={index}
+                  tabIndex={index}
+                  className="item"
+                  onClick={() => this.clickMarker(locale.venue.name, locale.venue.id)}
+                >
+                  {locale.venue.name}
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </aside>
     );
   }
