@@ -38,7 +38,8 @@ q
   - npm
 - [axios](https://www.npmjs.com/package/axios)
 - [ReactJS](https://reactjs.org/)
-- [React Router](https://reacttraining.com/react-router/)
+- [Google Maps Api](https://cloud.google.com/maps-platform/)
+- [FourSquare Api](https://developer.foursquare.com/)
 
 ### Dependencies
 
