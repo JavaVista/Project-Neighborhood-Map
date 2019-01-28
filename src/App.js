@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import Map from './components/Map';
 import Header from './components/Header';
+import Search from './components/Search';
 
 class App extends Component {
   state = {
@@ -264,6 +265,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <main>
+          <Search />
           <Map />
         </main>
       </div>
