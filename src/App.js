@@ -18,7 +18,7 @@ class App extends Component {
 
   renderMap = () => {
     loadMapScript(
-      'https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry&key=AIzaSyBKHkb-mBawoVs_ygUqq4XrWF_nCIwGWkM&v=3&callback=initMap'
+      'https://maps.googleapis.com/maps/api/js?&key=AIzaSyBKHkb-mBawoVs_ygUqq4XrWF_nCIwGWkM&v=3&callback=initMap'
     );
     window.initMap = this.initMap;
   };
@@ -246,7 +246,8 @@ class App extends Component {
     this.state.venues.forEach(thisVenue => {
       let venueInfo = `<div className="info"><h4>${thisVenue.venue.name}</h4>
         <p>${thisVenue.venue.location.formattedAddress}</p>
-        <p>${thisVenue.venue.categories[0].name}</p></div>`;
+        <p>${thisVenue.venue.categories[0].name}</p>
+        </div>`;
       // Create marker
       let marker = new window.google.maps.Marker({
         position: {
@@ -295,10 +296,6 @@ class App extends Component {
     );
   }
 }
-
-/*
-    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry&key=AIzaSyCabLYatqt2ceh4IV18VX_gyNdi68n3nRg&v=3&callback=initMap"></script>
-*/
 
 const loadMapScript = url => {
   const scriptIndex = window.document.getElementsByTagName('script')[0];

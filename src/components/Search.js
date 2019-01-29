@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import escapeRegex from 'escape-string-regexp';
 
 export default class Search extends Component {
+
   state = {
     query: '',
     venues: this.props.venues
@@ -36,8 +37,10 @@ export default class Search extends Component {
     return (
       <aside className="search">
         <div className="search-form">
-          <h3 className="text">Search for Java Nearby</h3>
+          <h3 className="text">Search for ☕ Cafe Nearby</h3>
           <input
+            aria-label="Filter venue list"
+            role="search"
             id="places-search"
             type="text"
             placeholder="e.g. Starbucks"
