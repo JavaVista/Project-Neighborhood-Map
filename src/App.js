@@ -290,13 +290,6 @@ class App extends Component {
     this.setState({ venues: newVenues });
   };
 
-  toggleNav = () => {
-    document.querySelector('.search').addEventListener('click', function() {
-      this.classList.toggle('toggle');
-      console.log('why');
-    });
-  };
-
   render() {
     return (
       <div className="App">
