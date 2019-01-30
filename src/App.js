@@ -9,11 +9,20 @@ class App extends Component {
   state = {
     allVenues: [],
     venues: [],
-    markers: []
+    markers: [],
+    showMenu: true
+  };
+
+  // Flips Menu
+
+  toggleMenu() {
+    this.toggleMenu = this.toggleMenu.bind(this)
+    this.setState({ showMenu: !this.state.showMenu })
   };
 
   componentDidMount() {
     this.getVenues();
+    this.toggleMenu()
   }
 
   renderMap = () => {
@@ -280,9 +289,17 @@ class App extends Component {
     this.setState({ venues: newVenues });
   };
 
+  toggleNav = () => {
+    document.querySelector('.search').addEventListener('click', function() {
+      this.classList.toggle('toggle');
+      console.log('why');
+    });
+  };
+
   render() {
     return (
       <div className="App">
+          <span className="nav-toggle fas fa-bars" onClick={this.toggleMenu} />
         <Header />
         <main>
           <Search

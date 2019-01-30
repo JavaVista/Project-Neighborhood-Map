@@ -1,4 +1,4 @@
-* {
+* .cup {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -12,12 +12,15 @@ header {
   padding: 1rem;
 }
 
-input {
-  font-size: 1rem;
-}
-
 span {
   padding: 10%;
+}
+
+.box,
+.search-form {
+  font-size: 1rem;
+  text-align: center;
+  align-content: center;
 }
 
 .nav-toggle {
@@ -33,13 +36,10 @@ span {
   top: 40px;
 }
 
+.text,
 .search-result {
   list-style: none;
   font-weight: bold;
-}
-
-.App {
-  text-align: center;
 }
 
 .App-logo {
@@ -91,9 +91,14 @@ span {
   flex-direction: column;
   text-align: center;
   background: white;
+  max-width: 65%;
 }
 
 @media all and (max-width: 767px) {
+  h2 {
+    text-align: justify;
+  }
+
   .nav-toggle {
     display: block;
   }
@@ -115,6 +120,7 @@ span {
     left: -100%;
     transition: all 500ms ease-in-out;
     z-index: 99;
+    padding-top: 51px;
   }
 
   .search.toggle {

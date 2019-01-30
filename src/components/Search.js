@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import escapeRegex from 'escape-string-regexp';
 
 export default class Search extends Component {
-
   state = {
     query: '',
     venues: this.props.venues
@@ -18,7 +17,7 @@ export default class Search extends Component {
       newVenues = allVenues.filter(locale => {
         return match.test(locale.venue.name);
       });
-      this.setState({ venues: newVenues })
+      this.setState({ venues: newVenues });
       this.props.updateVenues(newVenues);
     } else {
       this.setState({ venues: allVenues });
@@ -35,10 +34,17 @@ export default class Search extends Component {
 
   render() {
     return (
-      <aside className="search">
+      <aside className={this.props.toggleMenu ? "search" : "search toggle"} >
         <div className="search-form">
-          <h3 className="text">Search for ☕ Cafe Nearby</h3>
+          <h3 className="text">
+            Search for{' '}
+            <span className="cup" role="img" aria-label="coffee cup">
+              ☕
+            </span>{' '}
+            Cafe Nearby
+          </h3>
           <input
+            className="box"
             aria-label="Filter venue list"
             role="search"
             id="places-search"
@@ -57,7 +63,9 @@ export default class Search extends Component {
                   key={index}
                   tabIndex={index}
                   className="item"
-                  onClick={() => this.clickMarker(locale.venue.name, locale.venue.id)}
+                  onClick={() =>
+                    this.clickMarker(locale.venue.name, locale.venue.id)
+                  }
                 >
                   {locale.venue.name}
                 </li>
