@@ -4,6 +4,7 @@ import axios from 'axios';
 import Map from './components/Map';
 import Header from './components/Header';
 import Search from './components/Search';
+import Footer from './components/Footer';
 
 class App extends Component {
   state = {
@@ -309,6 +310,7 @@ class App extends Component {
           />
           <Map />
         </main>
+        <Footer />
       </div>
     );
   }
