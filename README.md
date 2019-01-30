@@ -1,6 +1,6 @@
 # Neighborhood Map Project
 
-Udacity Front-End Developer Nanodegree project. Developed a Single Page App using React.js library with Google Maps API and Foursquare API. The goal of the project was to create a web application from scratch.
+Udacity Front-End Developer Nanodegree project. Developed a Single Page App using React.js library with Google Maps API, along  with Foursquare API. The goal of the project was to create a web application from scratch.
 
 ## Table of Contents
 
@@ -23,12 +23,25 @@ I create a Single Page App that allows you to select a list of venues in a Googl
 
 ## App Functionality
 
-fjaldjljafjdkfajffk
+The application shows you the locations of Coffee Shops around the City of Waterbury in CT. The map data is from Google Maps, along with location data from Foursquare.
 
+Some of the features include:
+
+- A large-screen map of the city
+- Map markers identifying a number of Coffee Shops around town
+- Clicking on a map marker will display the name and address of the venue
+- A search box that will display a list view of the identified location
+- Clicking on a name in the list, the marker will animate by bouncing on the map to show you the exact location
+- It has a Google's Lighthouse Accessibility Rating of 91
+- Primarily use for laptop or tablet, but it has been optimized for phone screens as well
+- The ability to switch the theme color of the map to a customize color theme called "Brass City"
+
+<!--
+TODO:
 ### Demo
 
-- [MyReads App](https://javavista.github.io/Project-MyReads/#/)
-q
+- [Neighborhood Map](https://javavista.github.io/Project-MyReads/#/)
+-->
 
 ## Technology
 
@@ -37,6 +50,7 @@ q
 - Node.js
   - npm
 - [axios](https://www.npmjs.com/package/axios)
+- [escape-string-regexp](https://www.npmjs.com/package/escape-string-regexp)
 - [ReactJS](https://reactjs.org/)
 - [Google Maps Api](https://cloud.google.com/maps-platform/)
 - [FourSquare Api](https://developer.foursquare.com/)
