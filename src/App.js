@@ -11,19 +11,20 @@ class App extends Component {
     allVenues: [],
     venues: [],
     markers: [],
-    showMenu: true
+    showMenu: false
   };
 
   // Flips Menu
-
-  toggleMenu() {
-    this.toggleMenu = this.toggleMenu.bind(this)
-    this.setState({ showMenu: !this.state.showMenu })
+  toggleMenu = () => {
+    if (this.state.showMenu === true) {
+      this.setState({ showMenu: false });
+    } else {
+      this.setState({ showMenu: true });
+    }
   };
 
   componentDidMount() {
     this.getVenues();
-    this.toggleMenu()
   }
 
   renderMap = () => {
@@ -293,10 +294,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <span className="nav-toggle fas fa-bars" onClick={this.toggleMenu} />
-        <Header />
+        <Header
+          {...this.state}
+          toggleMenu={this.toggleMenu} />
         <main>
           <Search
+            {...this.state}
             updateVenues={this.updateVenues}
             venues={this.state.allVenues}
             markers={this.state.markers}

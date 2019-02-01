@@ -77,8 +77,13 @@ span {
 }
 
 .search {
+  z-index: 10;
   width: 30%;
   padding-top: 10px;
+}
+
+.search.search-true {
+  transform: translate(0, 0);
 }
 
 .item {
@@ -91,7 +96,6 @@ span {
   flex-direction: column;
   text-align: center;
   background: white;
-  max-width: 65%;
 }
 
 #footer {
@@ -112,7 +116,7 @@ span {
   align-content: center;
 }
 
-
+/* Media queries */
 
 @media all and (max-width: 767px) {
   h2 {
@@ -121,6 +125,9 @@ span {
 
   .nav-toggle {
     display: block;
+    border: 1px solid #fff;
+    border-radius: 13px;
+    padding-bottom: 16px;
   }
 
   .App-header {
@@ -135,15 +142,15 @@ span {
   }
 
   .search {
-    position: fixed;
-    width: 250px;
-    left: -100%;
-    transition: all 500ms ease-in-out;
-    z-index: 99;
-    padding-top: 51px;
+    width: 30vw;
+    position: absolute;
+    transform: translate(-30vw, 0);
+    transition: transform 1.3s ease;
+    z-index: 10;
+    padding-top: 50px
   }
 
-  .search.toggle {
-    left: 0;
+  .search.search-true {
+    transform: translate(0, 0);
   }
 }

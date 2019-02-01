@@ -34,7 +34,7 @@ export default class Search extends Component {
 
   render() {
     return (
-      <aside className={this.props.toggleMenu ? "search" : "search toggle"} >
+      <aside className={"search " + 'search-' + this.props.showMenu}>
         <div className="search-form">
           <h3 className="text">
             Search for{' '}
