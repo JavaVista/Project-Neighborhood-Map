@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { HashRouter } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 import Map from './components/Map';
@@ -293,21 +294,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Header
-          {...this.state}
-          toggleMenu={this.toggleMenu} />
-        <main>
-          <Search
-            {...this.state}
-            updateVenues={this.updateVenues}
-            venues={this.state.allVenues}
-            markers={this.state.markers}
-          />
-          <Map />
-        </main>
-        <Footer />
-      </div>
+      <HashRouter>
+        <div className="App">
+          <Header {...this.state} toggleMenu={this.toggleMenu} />
+          <main>
+            <Search
+              {...this.state}
+              updateVenues={this.updateVenues}
+              venues={this.state.allVenues}
+              markers={this.state.markers}
+            />
+            <Map />
+          </main>
+          <Footer />
+        </div>
+      </HashRouter>
     );
   }
 }
