@@ -8,6 +8,7 @@ Udacity Front-End Developer Nanodegree project. Developed a Single Page App usin
   - [Table of Contents](#table-of-contents)
   - [Task](#task)
   - [App Functionality](#app-functionality)
+    - [Screenshot](#screenshot)
     - [Demo](#demo)
   - [Technology](#technology)
     - [Dependencies](#dependencies)
@@ -36,6 +37,13 @@ Some of the features include:
 - Primarily use for laptop or tablet, but it has been optimized for phone screens as well
 - The ability to switch the theme color of the map to a customize color theme called "Brass City"
 
+### Screenshot
+
+![Neighborhood Map - Screenshot](/src/NeighborhoodMap.png)
+Neighborhood Map - Screenshot
+
+![Neighborhood Map - Mobile - Screenshot](/src/NeighborhoodMap-mobile.png)
+Neighborhood Map - Mobile
 <!--
 TODO:
 ### Demo
